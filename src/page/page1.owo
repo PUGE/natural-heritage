@@ -1,0 +1,79 @@
+<template lang="pug">
+.page-1
+  .rotate
+    //- img.image-1(src="@|image-1.png|")
+  img.bottom-info(src="@|bottom-info.png|")
+</template>
+
+<script>
+  module.exports = {
+    data: {
+      motion: true
+    },
+    created: function () {
+      const rotateBox = this.query('.rotate')
+      let motion = true
+      let rotateNum = 0
+      function rotate() {
+        
+        rotateBox.style.transform = `rotate(${rotateNum}deg)`
+        if (motion) rotateNum += 0.05
+        if (rotateNum >= 360) rotateNum = 0
+        window.requestAnimationFrame(rotate)
+      }
+      rotate()
+      // 鼠标事件
+      this.$el.addEventListener("touchstart", () => {
+        motion = false
+      }, false);
+      let lastX = null
+      this.$el.addEventListener("touchmove", (e) => {
+        if (lastX !== null) {
+          rotateNum += (e.touches[0].clientX - lastX) * 0.5
+        }
+        lastX = e.touches[0].clientX
+      }, false);
+
+      this.$el.addEventListener("touchend", () => {
+        lastX = null
+        motion = true
+      }, false);
+    }
+  }
+</script>
+
+
+<style lang="less">
+.rotate {
+  // -webkit-transition-property: -webkit-transform;
+  // -webkit-transition-duration: 1s;
+  // -moz-transition-property: -moz-transform;
+  // -moz-transition-duration: 1s;
+  // animation: rotate 120s linear infinite;
+  width: 3106px;
+  height: 3106px;
+  transform-origin: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: -1133px;
+  // background-color: #009fe9;
+  background-image: url('@|bg.png|');
+}
+@keyframes rotate{
+  from{transform: rotate(0deg)}
+  to{transform: rotate(359deg)}
+}
+.image-1 {
+  position: absolute;
+  left: 44%;
+  top: 30%;
+}
+.bottom-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 8%;
+}
+</style>
