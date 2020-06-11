@@ -87,14 +87,23 @@
 			"src": "https://cunchu.site/owo/plug/autoScale.js"
 		},
 		{
-			"name": "touch",
+			"name": "toast",
 			"afterbody": true,
-			"src": "./owo_modules/touch.js"
+			"src": "./owo_modules/toast.js"
 		},
 		{
 			"name": "typing",
 			"afterbody": true,
 			"src": "./owo_modules/typing.js"
+		},
+		{
+			"name": "touch",
+			"afterbody": true,
+			"src": "./owo_modules/touch.js"
+		},
+		{
+			"name": "html2canvas",
+			"src": "./owo_modules/html2canvas.min.js"
 		}
 	],
 	"styleList": [
@@ -116,6 +125,14 @@
 		{
 			"name": "page2",
 			"src": "./src/page/page2.owo"
+		},
+		{
+			"name": "page3",
+			"src": "./src/page/page3.owo"
+		},
+		{
+			"name": "page4",
+			"src": "./src/page/page4.owo"
 		}
 	],
 	"mode": {

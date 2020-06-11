@@ -1,0 +1,112 @@
+<template lang="pug">
+.page-3
+  //- 用户输入名字的页面
+  .user-input-page
+    .name-input-box
+      input(type="text")
+    .button(o-tap="make") 生成
+    //- 生成动画
+    p 这14处大美自然遗产<br>你打卡了5处哦~
+    .ani-loading-box
+      .ani-loading-bar
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+    },
+    make: function () {
+      this.query('.name-input-box').style.opacity = 0
+      this.query('.button').style.opacity = 0
+      setTimeout(() => {
+        this.query('.ani-loading-box').style.opacity = 1
+        this.query('p').style.opacity = 1
+        setTimeout(() => {
+          this.query('.ani-loading-bar').style.width = 657 + 'px'
+          setTimeout(() => {
+            owo.go('page4')
+          }, 2000);
+        }, 200);
+      }, 800);
+    }
+  }
+</script>
+
+
+<style lang="less">
+.user-input-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('@|name-bg.jpg|');
+  left: 0;
+  top: 0;
+  z-index: 11;
+  
+}
+.name-input-box {
+  position: absolute;
+  width: 480px;
+  height: 143px;
+  background-image: url('@|name-input.png|');
+  top: -10%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  opacity: 1;
+  transition: opacity 1s;
+  input {
+    position: absolute;
+    height: 60px;
+    top: 65px;
+    left: 30px;
+    width: 400px;
+    border: none;
+    background-color: transparent;
+    padding: 0 10px;
+    font-size: 30px;
+  }
+}
+.button {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60%;
+  font-size: 60px;
+  text-align: center;
+  line-height: 80px;
+  transition: opacity 1s;
+}
+p {
+  position: absolute;
+  top: 540px;
+  text-align: center;
+  font-size: 48px;
+  line-height: 90px;
+  width: 100%;
+  font-weight: bold;
+  color: #1f73ba;
+  opacity: 0;
+  z-index: -1;
+}
+.ani-loading-box {
+  width: 657px;
+  height: 38px;
+  background-image: url('@|ani-loading-bar-bg.png|');
+  position: absolute;
+  top: 64%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: opacity 1s;
+  opacity: 0;
+  z-index: -1;
+}
+.ani-loading-bar {
+  width: 0px;
+  height: 38px;
+  background-image: url('@|ani-loading-bar.png|');
+  transition: width 1s;
+}
+</style>
