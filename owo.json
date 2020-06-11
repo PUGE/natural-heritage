@@ -85,6 +85,16 @@
 		{
 			"name": "autoScale",
 			"src": "https://cunchu.site/owo/plug/autoScale.js"
+		},
+		{
+			"name": "touch",
+			"afterbody": true,
+			"src": "./owo_modules/touch.js"
+		},
+		{
+			"name": "typing",
+			"afterbody": true,
+			"src": "./owo_modules/typing.js"
 		}
 	],
 	"styleList": [
@@ -96,8 +106,16 @@
 	],
 	"pageList": [
 		{
+			"name": "loading",
+			"src": "https://template.owo.ink/92b4d6353335b930.owo"
+		},
+		{
 			"name": "page1",
 			"src": "./src/page/page1.owo"
+		},
+		{
+			"name": "page2",
+			"src": "./src/page/page2.owo"
 		}
 	],
 	"mode": {

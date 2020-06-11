@@ -1,0 +1,269 @@
+<template lang="pug">
+.page-1
+  .top-bar
+    img.show-me(src="@|show-me.png|" o-tap="showMenu")
+    .number-box 0
+  .rotate
+    //- img.image-1(src="@|image-1.png|")
+  img.bottom-info(src="@|bottom-info.png|")
+  .prop-1
+    .text-box
+      .title 梵净山
+      .local 贵州省铜仁市江口县太平镇
+      p 原始洪荒是梵净山的景观特征，山势雄伟、层峦叠嶂，溪流纵横、飞瀑悬泻。还是佛教道场，我国五大佛教名山之一，有许多相关人文遗迹景点。
+    .so.image-box
+    .so.button(o-tap="hideProp")
+      img.so.top(src="@|898.png|")
+      img.so.bottom(src="@|899.png|")
+  .check-box
+    ul
+      li
+        img.del(src="@|del.png|")
+        .text 1.黄龙风景区
+      li
+        img.del(src="@|del.png|")
+        .text 1.黄龙风景区
+      li
+        img.del(src="@|del.png|")
+        .text 1.黄龙风景区
+      li
+        img.del(src="@|del.png|")
+        .text 1.黄龙风景区
+    .bottom-bar(o-tap="showMenu") 点此收起菜单
+  </template>
+
+<script>
+  module.exports = {
+    data: {
+      checkNum: 0,
+      showMenu: false
+    },
+    created: function () {
+      const rotateBox = this.query('.rotate')
+      let motion = true
+      let rotateNum = 0
+      function rotate() {
+        
+        rotateBox.style.transform = `rotate(${rotateNum}deg)`
+        if (motion) rotateNum += 0.05
+        if (rotateNum >= 360) rotateNum = 0
+        window.requestAnimationFrame(rotate)
+      }
+      rotate()
+      // 鼠标事件
+      this.$el.addEventListener("touchstart", () => {
+        motion = false
+      }, false);
+      let lastX = null
+      this.$el.addEventListener("touchmove", (e) => {
+        if (lastX !== null) {
+          rotateNum += (e.touches[0].clientX - lastX) * 0.5
+        }
+        lastX = e.touches[0].clientX
+      }, false);
+
+      this.$el.addEventListener("touchend", () => {
+        lastX = null
+        motion = true
+      }, false);
+    },
+    hideProp: function () {
+      this.query('.prop-1').style.top = '-100%'
+    },
+    showMenu: function () {
+      this.data.showMenu = !this.data.showMenu
+      if (this.data.showMenu) {
+        this.query('.check-box').style.display = 'block'
+      } else {
+        this.query('.check-box').style.display = 'none'
+      }
+      
+    }
+  }
+</script>
+
+
+<style lang="less">
+.rotate {
+  width: 3106px;
+  height: 3106px;
+  transform-origin: center;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: -1133px;
+  background-image: url('@|bg.jpg|');
+}
+@keyframes rotate{
+  from{transform: rotate(0deg)}
+  to{transform: rotate(359deg)}
+}
+.image-1 {
+  position: absolute;
+  left: 44%;
+  top: 30%;
+}
+.bottom-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 10%;
+}
+.so {
+  position: absolute;
+}
+.button {
+  width: 133px;
+  height: 48px;
+  z-index: 0;
+  left: 309px;
+  top: 1210px;
+}
+.top {
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+.button:active .top {
+  left: 3px;
+  top: 2px;
+}
+.bottom {
+  left: 6px;
+  top: 5px;
+  z-index: -2;
+}
+.prop-1 {
+  position: absolute;
+  left: 0;
+  top: -100%;
+  width: 100%;
+  height: 100%;
+  transition: top 0.8s;
+  background-color: rgba(0, 0, 0, 0.8);
+  .title {
+    font-weight: bold;
+    font-size: 34px;
+    position: absolute;
+    top: 72%;
+    left: 50px;
+    line-height: 40px;
+  }
+  .local {
+    position: absolute;
+    background-repeat: no-repeat;
+    font-size: 26px;
+    top: 838px;
+    right: 50px;
+    padding-left: 21px;
+    line-height: 30px;
+    font-weight: bold;
+    background-image: url('@|local.png|');
+  }
+  p {
+    position: absolute;
+    font-size: 24px;
+    line-height: 35px;
+    width: 85%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 883px;
+    text-indent: 2em;
+    height: 140px;
+    overflow: auto;
+  }
+}
+.text-box {
+  position: absolute;
+  background-color: white;
+  width: 597px;
+  height: 1158px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.image-box {
+  left: 129px;
+  top: 234px;
+  width: 491px;
+  height: 745px;
+  z-index: 0;
+  background-image: url('@|image.png|');
+}
+.top-bar {
+  height: 290px;
+  background-color: #013158;
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+}
+.show-me {
+  position: absolute;
+  right: 100px;
+  bottom: 20px;
+}
+.number-box {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: #fe561e;
+  font-size: 60px;
+  line-height: 90px;
+  text-align: center;
+  font-weight: bold;
+  color: #013158;
+}
+.check-box {
+  background-color: #eef6fa;
+  position: absolute;
+  right: 100px;
+  top: 290px;
+  width: 380px;
+  height: 450px;
+  display: none;
+  .bottom-bar {
+    font-size: 26px;
+    color: #3d3c3c;
+    line-height: 50px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    z-index: 9;
+    left: 0;
+    top: auto;
+    border-top: 1px solid #3d3c3c;
+  }
+  ul {
+    width: 100%;
+    height: 390px;
+    font-size: 32px;
+    line-height: 50px;
+    color: #013158;
+    overflow: auto;
+  }
+  li {
+    display: flex;
+    margin: 10px 0;
+  }
+  .del {
+    width: 45px;
+    height: 45px;
+    padding: 2px 10px;
+    background-color: #deecfb;
+    margin: 0 5px;
+  }
+  .text {
+    background-color: #deecfb;
+    width: 290px;
+    padding: 0 5px;
+  }
+}
+</style>

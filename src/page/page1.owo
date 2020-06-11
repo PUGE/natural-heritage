@@ -1,8 +1,14 @@
 <template lang="pug">
 .page-1
-  .rotate
-    //- img.image-1(src="@|image-1.png|")
-  img.bottom-info(src="@|bottom-info.png|")
+  img.so.so-0(src="@|912.png|")
+  img.so.so-1(src="@|903.png|")
+  img.so.so-2(src="@|913.png|")
+  img.so.so-3(src="@|776.png|")
+  img.so.so-4(src="@|915.png|")
+  img.so.so-5.ani-1(src="@|914.png|")
+  img.so.so-6(src="@|911.jpg|")
+  img.so.so-7(src="@|916.png|")
+  img.so.so-8(src="@|745.png|" o-animation="floatLeftRight")
 </template>
 
 <script>
@@ -11,69 +17,84 @@
       motion: true
     },
     created: function () {
-      const rotateBox = this.query('.rotate')
-      let motion = true
-      let rotateNum = 0
-      function rotate() {
-        
-        rotateBox.style.transform = `rotate(${rotateNum}deg)`
-        if (motion) rotateNum += 0.05
-        if (rotateNum >= 360) rotateNum = 0
-        window.requestAnimationFrame(rotate)
-      }
-      rotate()
-      // 鼠标事件
-      this.$el.addEventListener("touchstart", () => {
-        motion = false
-      }, false);
-      let lastX = null
-      this.$el.addEventListener("touchmove", (e) => {
-        if (lastX !== null) {
-          rotateNum += (e.touches[0].clientX - lastX) * 0.5
+      owo.animate('bounceInLeft', this.query('.so-1'))
+      owo.animate('bounceInLeft', this.query('.so-2'), 200)
+      // 滑动检测
+      owo.tool.touch({
+        el: this.$el,
+        end: (e) => {
+          if (e.swipe[0] < -100) {
+            owo.go('page2//rotateRoomLeftOut&&ontop/rotateRoomLeftIn//rotateRoomRightOut&&ontop/rotateRoomRightIn')
+          }
         }
-        lastX = e.touches[0].clientX
-      }, false);
-
-      this.$el.addEventListener("touchend", () => {
-        lastX = null
-        motion = true
-      }, false);
+      })
     }
   }
 </script>
 
 
 <style lang="less">
-.rotate {
-  // -webkit-transition-property: -webkit-transform;
-  // -webkit-transition-duration: 1s;
-  // -moz-transition-property: -moz-transform;
-  // -moz-transition-duration: 1s;
-  // animation: rotate 120s linear infinite;
-  width: 3106px;
-  height: 3106px;
-  transform-origin: center;
+.so {
   position: absolute;
-  margin: auto;
-  top: 0;
-  left: -1133px;
-  // background-color: #009fe9;
-  background-image: url('@|bg.png|');
 }
-@keyframes rotate{
-  from{transform: rotate(0deg)}
-  to{transform: rotate(359deg)}
+.so-0 {
+  left: 630px;
+  top: 220px;
+  z-index: 6;
 }
-.image-1 {
-  position: absolute;
-  left: 44%;
-  top: 30%;
+.so-1 {
+  left: 44px;
+  top: 287px;
+  z-index: 5;
 }
-.bottom-info {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  bottom: 8%;
+.so-2 {
+  left: 44px;
+  top: 611px;
+  z-index: 4;
+}
+.so-3 {
+  left: 302px;
+  top: 858px;
+  z-index: 3;
+}
+.so-4 {
+  left: 231px;
+  top: 912px;
+  z-index: 2;
+}
+.so-5 {
+  left: 296px;
+  top: 909px;
+  z-index: 1;
+}
+.so-6 {
+  left: 0px;
+  top: 0px;
+  z-index: 0;
+}
+.so-7 {
+  left: 479px;
+  top: 912px;
+  z-index: 0;
+}
+.so-8 {
+  left: 0px;
+  top: 0px;
+  z-index: 0;
+}
+
+@keyframes ani1 {
+  0% {
+    transform: translateX(140px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+}
+
+.ani-1 {
+  animation: ani1 2s infinite 0s ease;
 }
 </style>
