@@ -1,58 +1,96 @@
 <template lang="pug">
 .page-2
   .top-bar
-    img.show-me(src="@|show-me.png|" o-tap="showMenu")
+    img.show-me(src="@|show-me.png|" o-tap="showMenu" o-animation="flicker")
     .number-box 0
+  //- 顶部提示
+  //- img.notic(src="@|notic.png|")
   .rotate
-    .so.so-0
-      img.so.so-1(src="@|image-102.png|")
-      img.so.so-2(src="@|image-101.png|")
-      img.so.so-3(src="@|image-100.png|")
-    .so.so-4
-      img.so.so-5(src="@|image-67.png|")
-      img.so.so-6(src="@|image-66.png|")
-      img.so.so-7(src="@|image-65.png|")
-    .so.so-8
-      img.so.so-9(src="@|image-57.png|")
-      img.so.so-10(src="@|image-56.png|")
-      img.so.so-11(src="@|image-55.png|")
-    .so.so-12
-      img.so.so-13(src="@|image-52.png|")
-      img.so.so-14(src="@|image-51.png|")
-      img.so.so-15(src="@|image-50.png|")
-    .so.so-16
-      img.so.so-17(src="@|image-82.png|")
-      img.so.so-18(src="@|image-81.png|")
-      img.so.so-19(src="@|image-80.png|")
-    .so.so-20
-      img.so.so-21(src="@|image-92.png|")
-      img.so.so-22(src="@|image-91.png|")
-      img.so.so-23(src="@|image-90.png|")
-    .so.so-24
-      img.so.so-25(src="@|image-62.png|")
-      img.so.so-26(src="@|image-61.png|")
-      img.so.so-27(src="@|image-60.png|")
-    .so.so-28
-      img.so.so-29(src="@|image-87.png|")
-      img.so.so-30(src="@|image-86.png|")
-      img.so.so-31(src="@|image-85.png|")
-    .so.so-32
-      img.so.so-33(src="@|image-107.png|")
-      img.so.so-34(src="@|image-106.png|")
-      img.so.so-35(src="@|image-105.png|")
-    .so.so-36
-      img.so.so-37(src="@|image-72.png|")
-      img.so.so-38(src="@|image-71.png|")
-      img.so.so-39(src="@|image-70.png|")
-    .so.so-40
-      img.so.so-41(src="@|image-77.png|")
-      img.so.so-42(src="@|image-76.png|")
-      img.so.so-43(src="@|image-75.png|")
-    .so.so-44
-      img.so.so-45(src="@|image-97.png|")
-      img.so.so-46(src="@|image-96.png|")
-      img.so.so-47(src="@|image-95.png|")
-    //- img.image-1(src="@|image-1.png|")
+    .so.so-0.image-box-1
+      img.so.so-1(src="@|image-102.png|" o-tap="showItem(1)" o-animation="flicker")
+      img.so.so-2(src="@|image-101.png|" style="zindex:-2;" o-tap="showItem(1)")
+      img.big(src="@|image-101-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-3(src="@|image-100.png|" o-tap="checkItem(1)")
+    .so.so-4.image-box-2
+      img.so.so-5(src="@|image-57.png|" o-tap="showItem(2)" o-animation="flicker")
+      img.so.so-6(src="@|image-56.png|" style="zindex:-2;" o-tap="showItem(2)")
+      img.big(src="@|image-56-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-7(src="@|image-55.png|" style="transform: rotate(-14deg);" o-tap="checkItem(2)")
+    .so.so-8.image-box-3
+      img.so.so-9(src="@|image-67.png|" o-tap="showItem(3)" o-animation="flicker")
+      img.so.so-10(src="@|image-66.png|" style="zindex:-2;" o-tap="showItem(3)")
+      img.big(src="@|image-66-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-11(src="@|image-65.png|" style="transform: rotate(-37deg);" o-tap="checkItem(3)")
+    .so.so-12.image-box-4
+      img.so.so-13(src="@|image-92.png|" o-tap="showItem(4)" o-animation="flicker")
+      img.so.so-14(src="@|image-91.png|" style="zindex:-2;" o-tap="showItem(4)")
+      img.big(src="@|image-91-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-15(src="@|image-90.png|" style="transform: rotate(-71deg);" o-tap="checkItem(4)")
+    .so.so-16.image-box-6
+      img.so.so-17(src="@|image-62.png|" o-tap="showItem(6)" o-animation="flicker")
+      img.so.so-18(src="@|image-61.png|" style="zindex:-2;" o-tap="showItem(6)")
+      img.big(src="@|image-61-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-19(src="@|image-60.png|" style="transform: rotate(-107deg);" o-tap="checkItem(6)")
+    .so.so-20.image-box-5
+      img.so.so-21(src="@|image-87.png|" o-tap="showItem(5)" o-animation="flicker")
+      img.so.so-22(src="@|image-86.png|" style="zindex:-2;" o-tap="showItem(5)")
+      img.big(src="@|image-86-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-23(src="@|image-85.png|" style="transform: rotate(-127deg);" o-tap="checkItem(5)")
+    .so.so-24.image-box-7
+      img.so.so-25(src="@|image-107.png|" o-tap="showItem(7)" o-animation="flicker")
+      img.so.so-26(src="@|image-106.png|" style="zindex:-2;" o-tap="showItem(7)")
+      img.big(src="@|image-106-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-27(src="@|image-105.png|" style="transform: rotate(182deg);" o-tap="checkItem(7)")
+    .so.so-28.image-box-8
+      img.so.so-29(src="@|image-72.png|" o-tap="showItem(8)" o-animation="flicker")
+      img.so.so-30(src="@|image-71.png|" style="zindex:-2;" o-tap="showItem(8)")
+      img.big(src="@|image-71-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-31(src="@|image-70.png|" style="transform: rotate(151deg);" o-tap="checkItem(8)")
+    .so.so-32.image-box-9
+      img.so.so-33(src="@|image-77.png|" o-tap="showItem(9)" o-animation="flicker")
+      img.so.so-34(src="@|image-76.png|" style="zindex:-2;" o-tap="showItem(9)")
+      img.big(src="@|image-76-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-35(src="@|image-75.png|" style="transform: rotate(123deg);" o-tap="checkItem(9)")
+    .so.so-36.image-box-10
+      img.so.so-37(src="@|image-97.png|" o-tap="showItem(10)" o-animation="flicker")
+      img.so.so-38(src="@|image-96.png|" style="zindex:-2;" o-tap="showItem(10)")
+      img.big(src="@|image-96-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-39(src="@|image-95.png|" style="transform: rotate(107deg);" o-tap="checkItem(10)")
+    .so.so-40.image-box-11
+      img.so.so-41(src="@|image-82.png|" o-tap="showItem(11)" o-animation="flicker")
+      img.so.so-42(src="@|image-81.png|" style="zindex:-2;" o-tap="showItem(11)")
+      img.big(src="@|image-81-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-43(src="@|image-80.png|" style="transform: rotate(81deg);" o-tap="checkItem(11)")
+    .so.so-44.image-box-12
+      img.so.so-45(src="@|image-52.png|" o-tap="showItem(12)" o-animation="flicker")
+      img.so.so-46(src="@|image-51.png|" style="zindex:-2;" o-tap="showItem(12)")
+      img.big(src="@|image-51-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-47(src="@|image-50.png|" style="transform: rotate(71deg);" o-tap="checkItem(12)")
+    .so.so-48.image-box-13
+      img.so.so-49(src="@|image-146.png|" o-tap="showItem(13)" o-animation="flicker")
+      img.so.so-50(src="@|image-145.png|" style="zindex:-2;" o-tap="showItem(13)")
+      img.big(src="@|image-145-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-51(src="@|image-144.png|" style="transform: rotate(50deg);" o-tap="checkItem(13)")
+    .so.so-52.image-box-14
+      img.so.so-53(src="@|image-136.png|" o-tap="showItem(14)" o-animation="flicker")
+      img.so.so-54(src="@|image-135.png|" style="zindex:-2;" o-tap="showItem(14)")
+      img.big(src="@|image-135-big.png|")
+      .shrink-box(o-animation="shrink")
+        img.so.so-55(src="@|image-134.png|" style="transform: rotate(34deg);" o-tap="checkItem(14)")
+
   .bottom-info-box
     img.doit.ani-1(src="@|doit.png|")
     img.bottom-info(src="@|bottom-info.png|")
@@ -67,18 +105,6 @@
       img.so.bottom(src="@|899.png|")
   .check-box
     ul
-      li
-        img.del(src="@|del.png|")
-        .text 1.黄龙风景区
-      li
-        img.del(src="@|del.png|")
-        .text 1.黄龙风景区
-      li
-        img.del(src="@|del.png|")
-        .text 1.黄龙风景区
-      li
-        img.del(src="@|del.png|")
-        .text 1.黄龙风景区
     .bottom-bar(o-tap="showMenu") 点此收起菜单
   img.ok-button(src="@|select-ok.png|" o-tap="ok")
   
@@ -87,14 +113,36 @@
 <script>
   var motion = true
   var roateNext = true
+  function deleteSelect(key) {
+    owo.script.page2.data.checkList[key] = null
+    owo.script.page2.getNewHtml()
+  }
   module.exports = {
     data: {
       checkNum: 0,
-      showMenu: false
+      showMenu: false,
+      itemList: [
+        {name: "黄龙", local: "四川省阿坝藏族羌族自治州松潘县", text: "主要景观集中于长约3.6公里的黄龙沟，如同一条金色巨龙蜿蜒而下，享有“世界奇观”，“人间瑶池”等美誉。以彩池、雪山、峡谷、森林“四绝”著称于世。"},
+        {name: "武陵源", local: "湖南省张家界市武陵源区", text: "由张家界国家森林公园、索溪峪和天子山自然保护区组成，以其独特的石英砂岩峰林和喀斯特两种地貌融为一体，构成罕见的自然风光。"},
+        {name: "九寨沟", local: "四川省阿坝藏族羌族自治州九寨沟县", text: "这里雪峰高耸，湖水清澈艳丽，飞瀑多姿多彩，急流汹涌澎湃，林木青葱婆娑，历来被当地藏族同胞视为“神山圣水”。"},
+        {name: "三江并流", local: "", text: "金沙江、澜沧江和怒江这三条大江在云南省境内自北向南并行奔流１７０多公里， 形成世界上罕见的“江水并流而不交汇”的奇特自然地理景观。"},
+        {name: "四川大熊猫栖息地", local: "", text: "包括卧龙、四姑娘山、夹金山脉，面积9245平方公里，涵盖成都、阿坝、雅安、甘孜4个市州12个县，是全球最大最完整的大熊猫栖息地。"},
+        {name: "中国南方喀斯特", local: "", text: "包含云南石林、贵州荔波、重庆武隆、广西桂林、贵州施秉、重庆金佛山和广西环江七地的喀斯特地貌，占整个中国喀斯特面积的55%。"},
+        {name: "三清山", local: "江西省上饶市", text: "丰富的花岗岩造型石与多种植被、远近变化的景观及震撼人心的气候奇观相结合，创造了世界上独一无二的景观美学效果。"},
+        {name: "中国丹霞", local: "", text: "由广东丹霞山、浙江江郎山、江西龙虎山、福建泰宁、湖南崀山、贵州赤水六处系列提名地组成。"},
+        {name: "澄江化石遗址", local: "云南省玉溪市澄江县", text: "这一化石群距今有5.3亿年，被誉为“20世纪最惊人的古生物发现之一”，是迄今地球上发现的分布最集中、保存最完整、种类最丰富的“寒武纪生命大爆发”例证。"},
+        {name: "新疆天山", local: "新疆阜康市博格达峰", text: "以天池为中心，以完整的4个垂直自然景观带和雪山冰川、高山湖泊为主要特征，以独特的民族民俗风情为文化内涵，融森林、草原、雪山、人文景观为一体，别具一格。"},
+        {name: "神农架", local: "湖北省西部", text: "群山万壑，峰峦迭翠；峡谷天雕，奇洞天成；险崖瀑飞，锦石溪流；深山老林，云流雾绕，高山平原，碧海长天，构成一幅幅山水画卷。"},
+        {name: "青海可可西里", local: "青海玉树藏族自治州", text: "人迹罕至，是世界上原始生态环境保存较好的自然保护区，主要是保护藏羚羊、野牦牛、藏野驴、藏原羚等珍稀野生动物、植物及其栖息环境。"},
+        {name: "梵净山", local: "贵州省铜仁市", text: "原始洪荒是梵净山的景观特征，山势雄伟、层峦叠嶂，溪流纵横、飞瀑悬泻。还是佛教道场，我国五大佛教名山之一，有许多相关人文遗迹景点。"},
+        {name: "中国黄（渤）海候鸟栖息地（一期）", local: "江苏省盐城市", text: "拥有世界上规模最大的潮间带滩涂，是濒危物种最多、受威胁程度最高的东亚-澳大利亚候鸟迁徙路线上的关键枢纽，也是全球数以百万迁徙候鸟的停歇地、换羽地和越冬地。"},
+      ],
+      checkList: {}
     },
-    created: function () {
+    show: function () {
+      motion = true
+      roateNext = true
       const rotateBox = this.query('.rotate')
-      
       let rotateNum = 0
       function rotate() {
         rotateBox.style.transform = `rotate(${rotateNum}deg)`
@@ -110,7 +158,7 @@
       let lastX = null
       this.$el.addEventListener("touchmove", (e) => {
         if (lastX !== null) {
-          rotateNum += (e.touches[0].clientX - lastX) * 0.5
+          rotateNum += (e.touches[0].clientX - lastX) * 0.2
         }
         lastX = e.touches[0].clientX
       }, false);
@@ -126,6 +174,7 @@
       owo.animate('fadeInUp', this.query('.ok-button'), 3000)
     },
     hideProp: function () {
+      motion = true
       this.query('.prop-1').style.top = '-100%'
     },
     showMenu: function () {
@@ -139,13 +188,56 @@
     },
     ok: function () {
       roateNext = false
-      owo.go('page3')
+      owo.go('page3//rotateCubeLeftOut/rotateCubeLeftIn/true/rotateCubeRightOut/rotateCubeRightIn')
+    },
+    checkItem: function (key) {
+      const checkList = owo.script.page2.data.checkList
+      if (!this.data.checkList[key]) {
+        this.data.checkList[key] = this.data.itemList[parseInt(key) - 1]
+        this.$target.classList.add('shadow')
+      } else {
+        this.data.checkList[key] = null
+        this.$target.classList.remove('shadow')
+      }
+      this.getNewHtml()
+    },
+    getNewHtml: function () {
+      this.data.checkNum = 0
+      let newHtml = ''
+      const checkList = owo.script.page2.data.checkList
+      for (const key in checkList) {
+        if (checkList.hasOwnProperty(key)) {
+          const element = checkList[key];
+          if (element) {
+            this.data.checkNum++
+            newHtml += `<li><img class="del" onclick="deleteSelect(${key})" src="@|del.png|"><div class="text">${key}. ${element.name}</div></li>`
+          }
+        }
+      }
+      this.query('.number-box').innerHTML = this.data.checkNum
+      this.query('.check-box ul').innerHTML = newHtml
+    },
+    showItem: function (key) {
+      const info = this.data.itemList[parseInt(key) - 1]
+      this.query('.text-box .title').innerHTML = info.name
+      this.query('.text-box .local').innerHTML = info.local
+      this.query('.text-box p').innerHTML = info.text
+      console.log(this.$target.parentNode.getElementsByClassName('big')[0].src)
+      this.query('.prop-1 .image-box').style.backgroundImage = `url(${this.$target.parentNode.getElementsByClassName('big')[0].src})`
+      setTimeout(() => {
+        motion = false
+      }, 0);
+      
+      this.query('.prop-1').style.top = '0'
     }
   }
 </script>
 
 
 <style lang="less">
+.page-2 {
+  background-image: url('@|main-bg.png|');
+}
 .rotate {
   width: 3106px;
   height: 3106px;
@@ -154,7 +246,7 @@
   margin: auto;
   top: 0;
   left: -1133px;
-  /* background-image: url('@|bg.jpg|'); */
+  // background-image: url('@|bg.jpg|');
 }
 @keyframes rotate{
   from{transform: rotate(0deg)}
@@ -170,7 +262,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  bottom: 10%;
+  bottom: 11%;
   img {
     display: block;
     margin: 0 auto;
@@ -184,7 +276,8 @@
   height: 48px;
   z-index: 0;
   left: 309px;
-  top: 1210px;
+  top: 1252px;
+  transform: scale(1.5);
 }
 .top {
   left: 0px;
@@ -206,13 +299,14 @@
   top: -100%;
   width: 100%;
   height: 100%;
+  z-index: 9;
   transition: top 0.8s;
   background-color: rgba(0, 0, 0, 0.8);
   .title {
     font-weight: bold;
     font-size: 34px;
     position: absolute;
-    top: 72%;
+    top: 68%;
     left: 50px;
     line-height: 40px;
   }
@@ -220,7 +314,7 @@
     position: absolute;
     background-repeat: no-repeat;
     font-size: 26px;
-    top: 838px;
+    top: 840px;
     right: 50px;
     padding-left: 21px;
     line-height: 30px;
@@ -235,7 +329,7 @@
     left: 0;
     right: 0;
     margin: auto;
-    top: 883px;
+    top: 893px;
     text-indent: 2em;
     height: 140px;
     overflow: auto;
@@ -254,11 +348,10 @@
 }
 .image-box {
   left: 129px;
-  top: 234px;
+  top: 200px;
   width: 491px;
   height: 745px;
   z-index: 0;
-  background-image: url('@|image.png|');
 }
 .top-bar {
   height: 290px;
@@ -334,273 +427,317 @@
 }
 .rotate {
   .so-0 {
-    left: 1643px;
-    top: 401px;
+    left: 1478px;
+    top: 597px;
     width: 213px;
     height: 287px;
-    z-index: 11;;
+    z-index: 13;;
   }
   .so-1 {
-    left: 67px;
-    top: 263px;
-    z-index: 10;
+    left: 25px;
+    top: 264px;
+    z-index: 12;
   }
   .so-2 {
-    left: 27px;
+    left: 29px;
     top: 224px;
-    z-index: 9;
+    z-index: 11;
   }
   .so-3 {
     left: 0px;
     top: 0px;
-    z-index: 8;
+    z-index: 10;
   }
   .so-4 {
-    left: 754px;
-    top: 800px;
-    width: 263px;
-    height: 264px;
-    z-index: 7;;
+    left: 1231px;
+    top: 945px;
+    width: 262px;
+    height: 282px;
+    z-index: 9;;
   }
   .so-5 {
-    left: 190px;
-    top: 191px;
-    z-index: 6;
+    left: 118px;
+    top: 197px;
+    z-index: 8;
   }
   .so-6 {
-    left: 141px;
-    top: 138px;
-    z-index: 5;
+    left: 86px;
+    top: 163px;
+    z-index: 7;
   }
   .so-7 {
     left: 0px;
     top: 0px;
-    z-index: 4;
+    z-index: 6;
   }
   .so-8 {
-    left: 1271px;
-    top: 791px;
-    width: 222px;
-    height: 291px;
-    z-index: 3;;
+    left: 814px;
+    top: 853px;
+    width: 271px;
+    height: 277px;
+    z-index: 5;;
   }
   .so-9 {
-    left: 113px;
-    top: 248px;
-    z-index: 2;
+    left: 135px;
+    top: 173px;
+    z-index: 4;
   }
   .so-10 {
-    left: 67px;
-    top: 200px;
-    z-index: 1;
+    left: 109px;
+    top: 142px;
+    z-index: 3;
   }
   .so-11 {
     left: 0px;
     top: 0px;
-    z-index: 0;
+    z-index: 2;
   }
   .so-12 {
-    left: 2020px;
-    top: 751px;
-    width: 245px;
-    height: 283px;
-    z-index: -1;;
+    left: 588px;
+    top: 1230px;
+    width: 291px;
+    height: 216px;
+    z-index: 1;;
   }
   .so-13 {
-    left: 13px;
-    top: 224px;
-    z-index: -2;
+    left: 237px;
+    top: 50px;
+    z-index: 0;
   }
   .so-14 {
-    left: 0px;
-    top: 176px;
-    z-index: -3;
+    left: 208px;
+    top: 74px;
+    z-index: -1;
   }
   .so-15 {
-    left: 29px;
+    left: 0px;
     top: 0px;
-    z-index: -4;
+    z-index: -2;
   }
   .so-16 {
-    left: 2445px;
-    top: 1023px;
-    width: 291px;
-    height: 220px;
-    z-index: -5;;
+    left: 559px;
+    top: 1734px;
+    width: 289px;
+    height: 253px;
+    z-index: -3;;
   }
   .so-17 {
-    left: 0px;
-    top: 110px;
-    z-index: -6;
+    left: 225px;
+    top: -6px;
+    z-index: -4;
   }
   .so-18 {
-    left: 29px;
-    top: 66px;
-    z-index: -7;
+    left: 184px;
+    top: 0px;
+    z-index: -5;
   }
   .so-19 {
-    left: 76px;
-    top: 0px;
-    z-index: -8;
+    left: 0px;
+    top: 37px;
+    z-index: -6;
   }
   .so-20 {
-    left: 730px;
-    top: 1384px;
-    width: 287px;
-    height: 213px;
-    z-index: -9;;
+    left: 1014px;
+    top: 1923px;
+    width: 276px;
+    height: 271px;
+    z-index: -7;;
   }
   .so-21 {
-    left: 263px;
-    top: 66px;
-    z-index: -10;
+    left: 171px;
+    top: -22px;
+    z-index: -8;
   }
   .so-22 {
-    left: 224px;
-    top: 28px;
-    z-index: -11;
+    left: 140px;
+    top: 0px;
+    z-index: -9;
   }
   .so-23 {
     left: 0px;
+    top: 55px;
+    z-index: -10;
+  }
+  .so-24 {
+    left: 1451px;
+    top: 2248px;
+    width: 213px;
+    height: 287px;
+    z-index: -11;;
+  }
+  .so-25 {
+    left: 9px;
     top: 0px;
     z-index: -12;
   }
-  .so-24 {
-    left: 587px;
-    top: 1827px;
-    width: 282px;
-    height: 247px;
-    z-index: -13;;
-  }
-  .so-25 {
-    left: 224px;
-    top: 14px;
-    z-index: -14;
-  }
   .so-26 {
-    left: 171px;
-    top: 0px;
-    z-index: -15;
+    left: 56px;
+    top: 37px;
+    z-index: -13;
   }
   .so-27 {
     left: 0px;
-    top: 31px;
-    z-index: -16;
+    top: 74px;
+    z-index: -14;
   }
   .so-28 {
-    left: 1183px;
-    top: 1907px;
-    width: 245px;
-    height: 283px;
-    z-index: -17;;
+    left: 1856px;
+    top: 1990px;
+    width: 235px;
+    height: 282px;
+    z-index: -15;;
   }
   .so-29 {
-    left: 152px;
-    top: 0px;
-    z-index: -18;
+    left: -39px;
+    top: -21px;
+    z-index: -16;
   }
   .so-30 {
-    left: 100px;
-    top: 13px;
-    z-index: -19;
+    left: 0px;
+    top: 19px;
+    z-index: -17;
   }
   .so-31 {
-    left: 0px;
-    top: 68px;
-    z-index: -20;
+    left: 19px;
+    top: 67px;
+    z-index: -18;
   }
   .so-32 {
-    left: 1670px;
-    top: 2172px;
-    width: 213px;
-    height: 287px;
-    z-index: -21;;
+    left: 2212px;
+    top: 1851px;
+    width: 283px;
+    height: 267px;
+    z-index: -19;;
   }
   .so-33 {
-    left: 66px;
-    top: 0px;
-    z-index: -22;
+    left: -27px;
+    top: -5px;
+    z-index: -20;
   }
   .so-34 {
-    left: 28px;
-    top: 37px;
-    z-index: -23;
+    left: 0px;
+    top: 0px;
+    z-index: -21;
   }
   .so-35 {
-    left: 0px;
-    top: 74px;
-    z-index: -24;
+    left: 68px;
+    top: 52px;
+    z-index: -22;
   }
   .so-36 {
-    left: 1960px;
-    top: 1781px;
-    width: 263px;
-    height: 263px;
-    z-index: -25;;
+    left: 2002px;
+    top: 1536px;
+    width: 292px;
+    height: 252px;
+    z-index: -23;;
   }
   .so-37 {
-    left: 1px;
-    top: 0px;
-    z-index: -26;
+    left: -10px;
+    top: 23px;
+    z-index: -24;
   }
   .so-38 {
-    left: 0px;
-    top: 3px;
-    z-index: -27;
+    left: 16px;
+    top: 0px;
+    z-index: -25;
   }
   .so-39 {
-    left: 48px;
-    top: 47px;
-    z-index: -28;
+    left: 76px;
+    top: 37px;
+    z-index: -26;
   }
   .so-40 {
-    left: 2450px;
-    top: 1686px;
-    width: 282px;
-    height: 245px;
-    z-index: -29;;
+    left: 2425px;
+    top: 1485px;
+    width: 287px;
+    height: 213px;
+    z-index: -27;;
   }
   .so-41 {
     left: 0px;
-    top: 13px;
-    z-index: -30;
+    top: 34px;
+    z-index: -28;
   }
   .so-42 {
-    left: 12px;
-    top: 0px;
-    z-index: -31;
+    left: 37px;
+    top: 46px;
+    z-index: -29;
   }
   .so-43 {
-    left: 67px;
-    top: 30px;
-    z-index: -32;
+    left: 74px;
+    top: 0px;
+    z-index: -30;
   }
   .so-44 {
-    left: 2071px;
-    top: 1310px;
+    left: 2153px;
+    top: 1217px;
     width: 291px;
-    height: 220px;
-    z-index: -33;;
+    height: 218px;
+    z-index: -31;;
   }
   .so-45 {
-    left: 0px;
-    top: 110px;
-    z-index: -34;
+    left: -9px;
+    top: 70px;
+    z-index: -32;
   }
   .so-46 {
     left: 29px;
-    top: 66px;
-    z-index: -35;
+    top: 68px;
+    z-index: -33;
   }
   .so-47 {
     left: 76px;
     top: 0px;
+    z-index: -34;
+  }
+  .so-48 {
+    left: 2281px;
+    top: 813px;
+    width: 262px;
+    height: 263px;
+    z-index: -35;;
+  }
+  .so-49 {
+    left: -30px;
+    top: 160px;
     z-index: -36;
+  }
+  .so-50 {
+    left: 13px;
+    top: 150px;
+    z-index: -37;
+  }
+  .so-51 {
+    left: 47px;
+    top: 0px;
+    z-index: -38;
+  }
+  .so-52 {
+    left: 1852px;
+    top: 823px;
+    width: 336px;
+    height: 324px;
+    z-index: -39;;
+  }
+  .so-53 {
+    left: 66px;
+    top: 204px;
+    z-index: -40;
+  }
+  .so-54 {
+    left: 0px;
+    top: 121px;
+    z-index: -41;
+  }
+  .so-55 {
+    left: 121px;
+    top: 0px;
+    z-index: -42;
   }
 }
 .ok-button {
   position: absolute;
-  bottom: 8%;
+  bottom: 9.5%;
   left: 0;
   right: 0;
   margin: auto;
@@ -611,5 +748,24 @@
   margin: auto;
   top: 30px;
 }
-
+.shadow {
+  box-shadow: 8px 5px 4px #737171;
+  border-radius: 111px;
+}
+.big {
+  display: none;
+}
+.notic {
+  position: absolute;
+  top: 305px;
+  left: 20px;
+  margin: auto;
+}
+.shrink-box {
+  width: 213px;
+  height: 213px;
+  transform-origin: center;
+  z-index: -111;
+  position: absolute;
+}
 </style>

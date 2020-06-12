@@ -1,22 +1,65 @@
 <template lang="pug">
 .page-4
   .share-box
-    h2 莫小白
-    .title 已打卡了8个景点
-  .info 长按保存图片
+    h2
+    .title
+    ul.clear
+  .info(o-animation="flicker") 长按保存图片
   img.canvas-image
 </template>
 
 <script>
   module.exports = {
-    created: function () {
+    show: function () {
+      if (owo.script.page2.data.checkNum == 0) {
+        setTimeout(() => {
+          owo.go('page2//rotateCubeLeftOut/rotateCubeLeftIn/true/rotateCubeRightOut/rotateCubeRightIn')
+        }, 500);
+        return
+      }
+      console.log(this.query('.title'))
+      // 选择的列表
+      // 不同的等级
+      if (owo.script.page2.data.checkNum == 1) {
+        this.$el.classList.add('lv-1')
+      } else if (owo.script.page2.data.checkNum <= 6) {
+        this.$el.classList.add('lv-2')
+      } else if (owo.script.page2.data.checkNum <= 14) {
+        this.$el.classList.add('lv-3')
+      }
+
+      let arr = Array.from(owo.script.page2.data.checkList)
+      let newHtml = ''
+      let index = 0
+      for (const key in owo.script.page2.data.checkList) {
+        if (owo.script.page2.data.checkList.hasOwnProperty(key)) {
+          const element = owo.script.page2.data.checkList[key];
+          
+          const imgSrc = document.querySelectorAll(`.image-box-${key} img`)[3].src
+          if (owo.script.page2.data.checkNum == 1) {
+            newHtml += `<li><div style="background-image: url(${imgSrc})"></div><span>${element.name}</span></li>`
+          } else if (owo.script.page2.data.checkNum <= 6) {
+            newHtml += `<li style="left: ${index % 3 * 225}px; top: ${parseInt(index / 3) * 270}px;"><div style="background-image: url(${imgSrc})"></div><span>${element.name}</span></li>`
+          } else if (owo.script.page2.data.checkNum <= 14) {
+            newHtml += `<li style="left: ${index % 5 * 142}px; top: ${parseInt(index / 5) * 180}px;"><div style="background-image: url(${imgSrc})"></div><span>${element.name}</span></li>`
+          }
+          index++
+        }
+      }
+      this.query('ul').innerHTML = newHtml
+      this.query('.title').innerText = `已打卡了${owo.script.page2.data.checkNum}个景点`
       setTimeout(() => {
-        html2canvas(document.body, {height: window.innerHeight}).then((canvas) => {
+        html2canvas(document.body, {
+          height: window.innerHeight,
+          // width: window.innerWidth,
+          async: false,
+          useCORS: true
+          }).then((canvas) => {
           let base64Img = canvas.toDataURL('image/jpg')
           this.query('.canvas-image').src = base64Img
+          this.query('.info').style.display = 'block'
         });
-      }, 500);
-      
+      }, 1500);
     }
   }
 </script>
@@ -26,6 +69,7 @@
 .share-box {
   width: 100%;
   height: 100%;
+  user-select: none;
   background-image: url('@|share-bg.jpg|')
 }
 h2 {
@@ -43,13 +87,51 @@ h2 {
   color: white;
   line-height: 80px;
   width: 400px;
+  font-weight: bold;
 }
 .info {
   position: absolute;
-  top: 1170px;
-  font-size: 26px;
-  color: #616161;
+  top: 1160px;
+  font-size: 32px;
+  color: #333;
+  line-height: 40px;
   text-align: center;
   width: 100%;
+  display: none;
+  z-index: 888;
+}
+ul {
+  position: absolute;
+  top: 590px;
+  width: 90%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  height: 555px;
+  li {
+    position: absolute;
+    img, span {
+      display: block;
+      text-align: center;
+    }
+    div {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+      background-size: 100%;
+    }
+  }
+}
+.canvas-image {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+}
+.text-box {
+  display: none;
 }
 </style>

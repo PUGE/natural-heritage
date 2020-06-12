@@ -61,7 +61,62 @@ h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, bu
     opacity: 0;
   }
 }
-
 .ani-1 {
   animation: ani1 2s infinite 0s ease;
+}
+
+.lv-2 li {
+  width: 225px;
+  font-size: 24px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.lv-2 li span {
+  height: 80px;
+  margin: 10px 0;
+}
+
+.lv-2 li img {
+  margin: 0 auto;
+  height: 200px;
+}
+
+.lv-1 li {
+  font-size: 37px;
+  line-height: 70px;
+  width: 400px;
+  height: 480px;
+  left: 147px;
+  top: 58px;
+  margin: auto;
+  position: absolute;
+}
+
+.lv-1 ul li div {
+  width: 400px;
+  height: 400px;
+  background-size: 100% 100%;
+}
+
+.lv-3 li {
+  width: 120px;
+  margin: 0 1%;
+}
+
+.lv-3 ul li div, .lv-3 ul li span {
+  width: 120px;
+  height: 120px;
+}
+
+.lv-3 span {
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+  height: 60px;
+}
+
+.lv3 ul li div {
+  width: 120px;
+  height: 120px;
 }

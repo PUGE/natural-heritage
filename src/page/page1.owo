@@ -24,7 +24,7 @@
         el: this.$el,
         end: (e) => {
           if (e.swipe[0] < -100) {
-            owo.go('page2//rotateRoomLeftOut&&ontop/rotateRoomLeftIn//rotateRoomRightOut&&ontop/rotateRoomRightIn')
+            owo.go('page2//rotateCubeLeftOut/rotateCubeLeftIn/true/rotateCubeRightOut/rotateCubeRightIn')
           }
         }
       })
@@ -66,6 +66,11 @@
   left: 296px;
   top: 909px;
   z-index: 1;
+  
+}
+.so-6, .so-5, .so-4, .so-7 {
+  user-select: none;
+  pointer-events: none;
 }
 .so-6 {
   left: 0px;

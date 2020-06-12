@@ -87,11 +87,6 @@
 			"src": "https://cunchu.site/owo/plug/autoScale.js"
 		},
 		{
-			"name": "toast",
-			"afterbody": true,
-			"src": "./owo_modules/toast.js"
-		},
-		{
 			"name": "typing",
 			"afterbody": true,
 			"src": "./owo_modules/typing.js"
@@ -100,6 +95,11 @@
 			"name": "touch",
 			"afterbody": true,
 			"src": "./owo_modules/touch.js"
+		},
+		{
+			"name": "toast",
+			"afterbody": true,
+			"src": "./owo_modules/toast.js"
 		},
 		{
 			"name": "html2canvas",

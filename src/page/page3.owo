@@ -3,10 +3,11 @@
   //- 用户输入名字的页面
   .user-input-page
     .name-input-box
-      input(type="text")
-    .button(o-tap="make") 生成
+      input.name-input(type="text")
+    img.back(go="page2//rotateCubeRightOut/rotateCubeRightIn/true/rotateCubeLeftOut/rotateCubeLeftIn" src="@|back.png|")
+    img.button(o-tap="make" src="@|button-2.png|")
     //- 生成动画
-    p 这14处大美自然遗产<br>你打卡了5处哦~
+    p.text-info 
     .ani-loading-box
       .ani-loading-bar
 </template>
@@ -14,17 +15,30 @@
 <script>
   module.exports = {
     created: function () {
+      this.query('.text-info').innerHTML = `这14处大美自然遗产<br>你打卡了${owo.script.page2.data.checkNum}处哦~`
     },
     make: function () {
+      window.scrollTo(0, 0)
+      const name = this.query('.name-input').value
+      if (!name) {
+        owo.tool.toast('你还没有输入名字哦!')
+        return
+      }
+      if (owo.script.page2.data.checkNum == 0) {
+        owo.tool.toast('没有选中去过的景点 无法进行分享!')
+        return
+      }
+      document.querySelector('.share-box h2').innerText = name
       this.query('.name-input-box').style.opacity = 0
       this.query('.button').style.opacity = 0
+      this.query('.back').style.opacity = 0
       setTimeout(() => {
         this.query('.ani-loading-box').style.opacity = 1
         this.query('p').style.opacity = 1
         setTimeout(() => {
           this.query('.ani-loading-bar').style.width = 657 + 'px'
           setTimeout(() => {
-            owo.go('page4')
+            owo.go('page4//rotateCubeLeftOut/rotateCubeLeftIn/true/rotateCubeRightOut/rotateCubeRightIn')
           }, 2000);
         }, 200);
       }, 800);
@@ -70,13 +84,13 @@
 }
 .button {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 60%;
+  left: 435px;
+  top: 846px;
   font-size: 60px;
   text-align: center;
   line-height: 80px;
   transition: opacity 1s;
+  margin: auto;
 }
 p {
   position: absolute;
@@ -101,12 +115,17 @@ p {
   margin: auto;
   transition: opacity 1s;
   opacity: 0;
-  z-index: -1;
+  z-index: 11;
 }
 .ani-loading-bar {
   width: 0px;
   height: 38px;
   background-image: url('@|ani-loading-bar.png|');
   transition: width 1s;
+}
+.back {
+  position: absolute;
+  top: 845px;
+  left: 120px;
 }
 </style>
